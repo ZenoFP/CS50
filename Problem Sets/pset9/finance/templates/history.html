@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   Movements History
+{% endblock %}
+
+{% block main %}
+    <table>
+            <thead>
+                <tr>
+                    <th>Transaction Type</th>
+                    <th>Stock Symbol</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for channel in history_channel %}
+                    <tr>
+                            <td> {{ channel.type }} </td>
+                            <td> {{ channel.symbol }} </td>
+                            <td> {{ channel.price }} </td>
+                            <td> {{ channel.quantity }} </td>
+                            <td> {{ channel.date }} </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}

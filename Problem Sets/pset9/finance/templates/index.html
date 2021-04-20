@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My Wallet
+{% endblock %}
+
+{% block main %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Stock Name</th>
+                    <th>Shares</th>
+                    <th>Actual Price</th>
+                    <th>Total Value Holding</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock in stocks %}
+                    <tr>
+                            <td> {{ stock.symbol }} </td>
+                            <td> {{ stock.quantity }} </td>
+                            <td> {{ stock.price | usd }} </td>
+                            <td> {{ stock.total | usd }} </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}
